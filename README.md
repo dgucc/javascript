@@ -9,3 +9,4 @@
 
 [Tutoriel JavaScript](https://grafikart.fr/formations/formation-javascript)  
 
+[Configuration Visual Studio Code](https://grafikart.fr/tutoriels/vscode-settings-2096)  
