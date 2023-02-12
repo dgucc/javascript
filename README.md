@@ -10,3 +10,5 @@
 [Tutoriel JavaScript](https://grafikart.fr/formations/formation-javascript)  
 
 [Configuration Visual Studio Code](https://grafikart.fr/tutoriels/vscode-settings-2096)  
+<Ctrl+Shift+P> : Preferences  
+Edit /home/<user>/.config/Code/User/settings.json
