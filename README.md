@@ -5,7 +5,7 @@
 [d3js/map/world for kids](https://htmlpreview.github.io/?https://github.com/dgucc/javascript/blob/main/d3js/map/world/index.html)  
 [wifi_qr_js](https://htmlpreview.github.io/?https://github.com/dgucc/javascript/blob/main/wifi_qr_js/index.html)  
 
-[CSS Live Editable](https://htmlpreview.github.io/?https://github.com/dgucc/javascript/tree/main/CssLiveEditable/index.html)  
+[CSS Live Editable](https://htmlpreview.github.io/?https://github.com/dgucc/javascript/blob/main/CssLiveEditable/index.html)  
 
 
 ---
