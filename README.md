@@ -97,3 +97,5 @@ Edit /home/<user>/.config/Code/User/settings.json :
   }
 }
 ```  
+Open Terminal : <Ctrl+J>  
+
