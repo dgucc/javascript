@@ -2,6 +2,9 @@
 
 ## Usefull Formats for QR Codes
 
+WiFi  
+`WIFI:S:<SSID>;T:<WEP|WPA|blank>;P:<PASSWORD>;H:<true|false|blank>;` 
+
 Phone Number  
 `tel:+48111111111;`  
 
