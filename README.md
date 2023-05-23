@@ -1,4 +1,6 @@
 # javascript
+![Avatar](https://github.com/dgucc/sandbox/blob/main/tips/images/avatar.gif)  
+
 [Documentation MDN](https://developer.mozilla.org/fr/)    
 
 [d3js/map/europe for kids](https://htmlpreview.github.io/?https://github.com/dgucc/javascript/blob/main/d3js/map/europe/index.html)  
