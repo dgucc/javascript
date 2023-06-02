@@ -1,7 +1,7 @@
 
 # Insert OpenStreetMap in webpage
 
-[Example](https://github.com/dgucc/java/blob/main/openstreetmap/index.html)  
+[Example](https://github.com/dgucc/javascript/blob/main/openstreetmap/index.html)  
 
 ---
 
