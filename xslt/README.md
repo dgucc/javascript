@@ -31,7 +31,7 @@ position()
 <link rel="stylesheet" href="css/bootstrap.min.css" >
 ```
 
-1. Table 
+2. Table 
 
 `table-hover` : Hoverable rows in tbody  
 `w-auto` : automatic width (instead of 100%)
@@ -63,6 +63,7 @@ position()
 <script src="js/jquery.min.js"></script>
 ```
 
+2. load xml and xsl asynchronously  
 ```javascript
 [...]
 <script>
