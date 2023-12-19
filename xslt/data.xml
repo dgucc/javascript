@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<plant> 
+<plants> 
   <genus>Asimina</genus>
   <species>triloba</species>
   <cultivar>Potomac</cultivar>
@@ -36,4 +36,4 @@
       <planted_by>Leonardo DaVinci</planted_by>
     </specimen>
   </specimens>
-</plant>
+</plants>
