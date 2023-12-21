@@ -61,7 +61,7 @@ position()
    top:0; 
 }
 .table-container { 
-   height: 120px;
+   height: 180px;
    width: fit-content; 
    overflow: auto; 
 } 
