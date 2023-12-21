@@ -8,16 +8,16 @@
         <title></title>
     </head>
     <body>
-        <div>
+        <div class="container">
         <h1> My favorite plants!</h1>
             <table class="table table-hover w-auto">
-            <thead class="table-light">
+            <thead class="table-light" style="position: sticky;top: 0">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Latitude</th>
-                    <th scope="col">Longitude</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Planted By</th>
+                    <th scope="col" class="header">#</th>
+                    <th scope="col" class="header">Latitude</th>
+                    <th scope="col" class="header">Longitude</th>
+                    <th scope="col" class="header">Description</th>
+                    <th scope="col" class="header">Planted By</th>
                 </tr>
             </thead>
             <tbody>
