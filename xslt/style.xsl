@@ -8,7 +8,7 @@
         <title></title>
     </head>
     <body>
-        <div class="container">
+        <div class="table-container">
         <h1> My favorite plants!</h1>
             <table class="table table-hover w-auto">
             <thead class="table-light" style="position: sticky;top: 0">
