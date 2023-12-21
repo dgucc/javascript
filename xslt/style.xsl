@@ -11,13 +11,13 @@
         <div class="table-container">
         <h1> My favorite plants!</h1>
             <table class="table table-hover w-auto">
-            <thead class="table-light" style="position: sticky;top: 0">
+            <thead class="table-light">
                 <tr>
-                    <th scope="col" class="header">#</th>
-                    <th scope="col" class="header">Latitude</th>
-                    <th scope="col" class="header">Longitude</th>
-                    <th scope="col" class="header">Description</th>
-                    <th scope="col" class="header">Planted By</th>
+                    <th scope="col" class="row-header">#</th>
+                    <th scope="col" class="row-header">Latitude</th>
+                    <th scope="col" class="row-header">Longitude</th>
+                    <th scope="col" class="row-header">Description</th>
+                    <th scope="col" class="row-header">Planted By</th>
                 </tr>
             </thead>
             <tbody>

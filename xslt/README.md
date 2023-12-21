@@ -53,6 +53,29 @@ position()
    </table>
 
 ```
+3. Fixed table header  
+
+```css
+.row-header { 
+   position: sticky; 
+   top:0; 
+}
+.table-container { 
+   height: 120px;
+   width: fit-content; 
+   overflow: auto; 
+} 
+```
+
+```html
+<div class="table-container">
+   <table>
+      <thead class="table-light">
+            <tr>
+               <th class="row-header">#</th>
+               <th class="row-header">Latitude</th>
+```
+
 ---  
 ## jquery 
 
