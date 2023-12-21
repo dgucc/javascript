@@ -15,6 +15,9 @@
 [Tutoriel JavaScript](https://grafikart.fr/formations/formation-javascript)  
 
 ## VSCode
+
+### Configuration
+
 [Configuration Visual Studio Code](https://grafikart.fr/tutoriels/vscode-settings-2096)  
 <Ctrl+Shift+P> : Preferences  
 Edit /home/<user>/.config/Code/User/settings.json :
@@ -98,6 +101,20 @@ Edit /home/<user>/.config/Code/User/settings.json :
     "editor.formatOnType": true
   }
 }
-```  
+```
+### Shortcuts
 Open Terminal : <Ctrl+J>  
 
+### Enable jquery intellisense
+
+jsconfig.json :  
+
+```json
+{
+    "typeAcquisition": {
+        "include": [
+            "jquery"
+        ]
+    }
+}
+```
