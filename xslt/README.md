@@ -102,3 +102,7 @@ position()
   </script>
   </body>
 ```
+
+---
+firefox : about:config  
+security.fileuri.strict_origin_policy	*false*  
