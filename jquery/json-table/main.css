@@ -1,0 +1,27 @@
+body {
+   font-family: Helvetica, Arial, sans-serif;
+}
+
+.mytable {
+   margin-top: 30px;
+   border: 1px solid grey;
+   width: 70%;
+   border-collapse: collapse;
+}
+
+.mytable tr th {
+   border: 1px solid grey;
+   background-color: azure;
+   text-align: center;
+}
+
+.mytable tr:nth-child(even) td {
+   border: 1px solid grey;
+   background-color: #cef1cb;
+   text-align: center;
+}
+.mytable tr:nth-child(odd) td {
+   border: 1px solid grey;
+   background-color: #ffffff;
+   text-align: center;
+}
