@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+   <title>Nested JSON into Table</title>
+   <meta name='viewport' content='width=device-width, initial-scale=1'>
+   <link type="text/css" rel="stylesheet" href="main.css">
+   <script src='jquery-3.7.1.min.js'></script>
+   <script src='jquery.flexitable.js'></script>
+   <style>
+     
+   </style>
+</head>
+
+<body>
+   <div id="tableContainer_1"></div>
+
+
+   <script>
+      $(document).ready(function () {
+         $.getJSON("test.json", function (data) {
+            data.forEach(element => {
+               // document.write(element.name + "<br>");
+               // document.write(element.age + "<br>");
+               $("#tableContainer_1").flexiTable({
+                  data: data,
+                  tableCssClass: 'mytable',
+                  tableId: 'tabelId',
+                  refreshPriod: 100000,
+                  verticalHeaders: true,
+                  columnsTitle: {
+                     "Name": "Full Name",
+                     "Id": "Student ID",
+                     "Overal.S1": "Autumn Semester",
+                     "Overal.S2": "Spring Semester",
+                  }
+               });
+            });
+         }).fail(function () {
+            document.write("An error has occurred.");
+         });
+      });
+   </script>
+</body>
+
+</html>
