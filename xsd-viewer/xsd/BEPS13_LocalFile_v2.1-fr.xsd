@@ -1,0 +1,1877 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://beps13.minfin.fgov.be/local/v2.1" xmlns="http://beps13.minfin.fgov.be/local/v2.1"
+	xmlns:iso="urn:oecd:ties:isocbctypes:v1" elementFormDefault="qualified" version="2.1">
+	<xs:import namespace="urn:oecd:ties:isocbctypes:v1" schemaLocation="isocbctypes_v1.0.1.xsd"/>
+	<!-- Root element -->
+	<xs:element name="Declaration275LF" type="Declaration275LF_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Déclaration 275 LF</xs:documentation>
+
+
+		</xs:annotation>
+	</xs:element>
+	<!-- complexTypes -->	
+	<xs:complexType name="Declaration275LF_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Déclaration 275 LF</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Declarer" type="Declarer_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Entreprise</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GeneralCompanyInfo" type="GeneralCompanyInfo_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Renseignements généraux sur l'entreprise</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DetailOfEachBusinessUnit" type="DetailOfEachBusinessUnit_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Informations détaillées sur chaque unité d'exploitation dépassant la valeur seuil des transactions transfrontalières avec les entités constitutives au cours du dernier exercice clôturé</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OtherAttachments" type="OtherAttachments_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Autres documents (optionnel) (C1)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Declarer_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Déclarant</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CompanyName" type="CompanyName_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Dénomination</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CompanyNumber" type="CompanyNumber_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Numéro d'entreprise Belge BCE</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssessmentYear" type="AssessmentYear_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Exercide d'imposition</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AccountingYear" type="AccountingYear_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Exercice</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AccountingYear_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Exercice</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="StartDate" type="StartDate_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">du</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EndDate" type="EndDate_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">au</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GeneralCompanyInfo_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Renseignements généraux sur l'entreprise</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="A1ManagerialStructure" type="A1ManagerialStructure_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Structure de gestion de l'entreprise belge (A1)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="A2ParentCompany" type="A2ParentCompany_Type" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Structure organisationnelle belge - actionnaires ou maison mère (A2)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="A3SubsidiaryCompany" type="A3SubsidiaryCompany_Type" maxOccurs="unbounded" minOccurs="0">  
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Structure organisationnelle belge - participations (A3)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="A4ReportingTree" type="A4ReportingTree_Type" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Structure du rapportage belge (A4)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="A5CompanyActivities" type="A5CompanyActivities_Type" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Activités de l'entreprise belge (A5)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="A6KeyCompetitors" type="A6KeyCompetitors_Type" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Principales concurrents (A6)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="A7CoreData" type="A7CoreData_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Données principales (A7)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="A8AnnualAccounts" type="A8AnnualAccounts_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Synthèse des transactions, tant liées que non liées, à ne compléter que si l'entreprise n'est pas tenue de déposer le schéma complet de ses comptes annuels auprès de la Centrale des bilans de la Banque nationale de Belgique (A8)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="A1ManagerialStructure_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Structure de gestion de l'entreprise belge (A1)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Description" type="Description_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Description de la structure de gestion de l'entreprise belge</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Attachment" type="IsAttachmentAdded_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">PDF ajouté à la déclaration</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="A2ParentCompany_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Structure organisationnelle belge - actionnaires ou maison mère (A2)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TIN" type="TIN_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Numéro d'entreprise ou numéro d'identification</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="CompanyName_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Nom de l'entreprise</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountryCode" type="iso:CountryCode_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Code pays</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Attachment" type="IsAttachmentAdded_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">PDF ajouté à la déclaration</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="A3SubsidiaryCompany_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Structure organisationnelle belge - participations (A3)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TIN" type="TIN_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Numéro d'entreprise ou numéro d'identification</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="CompanyName_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Nom de l'entreprise</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountryCode" type="iso:CountryCode_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Code pays</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Attachment" type="IsAttachmentAdded_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">PDF ajouté à la déclaration</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="A4ReportingTree_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Structure du rapportage belge (A4)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Function" type="Function_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Fonction</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NatInternatReporting" type="NatInternatReporting_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Rapportage national (N) ou international (I)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FunctionOfReceiver" type="FunctionOfReceiver_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Fonction de la personne à laquelle il est rapporté</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReceiversEmployer" type="ReceiversEmployer_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Entreprise employant cette personne</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountryOfReceiversEmployer" type="iso:CountryCode_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Pays dans lequel cette entreprise est établie</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="A5CompanyActivities_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Activités de l'entreprise belge (A5)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BusinessUnit" type="BusinessUnit_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Identification de l'unité d'exploitation</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DetailedDescription" type="DetailedDescription_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Description détaillée des activités</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BusinessStrategy" type="BusinessStrategy_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Stratégie d'entreprise</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="A6KeyCompetitors_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Principales concurrents (A6)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="CompanyName_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Dénomination</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountryCode" type="iso:CountryCode_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Code pays</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="A7CoreData_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Données principales (A7)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UltimateParentCompany" type="UltimateParentCompany_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Entité mère ultime</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReportingTree" type="ReportingTree_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Structure du reporting</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ForeignHOandPE" type="ForeignHOandPE_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Maison mère étrangère et établissements stables étrangers</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Restructurings" type="Restructurings_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Restructurations</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UltimateParentCompany_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Entité mère ultime</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="CompanyName_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Nom de l'entité mère ultime</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountryCode" type="iso:CountryCode_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Code de pays de l'entité mère ultime</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TIN" type="TIN_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Numéro d'identification fiscale de l'entité mère ultime</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReportingTree_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Structure du reporting</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AmountOfBusinessUnits" type="AmountOfBusinessUnits_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Nombre d'unités d'exploitation au sein de l'entreprise</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AmountAboveThreshold" type="AmountAboveThreshold_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Nombre de ces unités d'exploitation pour lesquelles la valeur seuil des transactions liées est dépassée</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForeignHOandPE_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Maison mère étrangère et établissements stables étrangers</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="ForeignEstablisment" type="ForeignEstablisment_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Etablissements stables étrangers</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ForeignHeadQuarter" type="ForeignHeadQuarter_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Maison mère étrangère</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ForeignEstablisment_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Votre entreprise dispose d'établissements stables étrangers</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CountryCode" type="iso:CountryCode_Type" maxOccurs="unbounded" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Codes des pays dans lesquels les établissements stables étrangers sont établis</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ForeignHeadQuarter_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Votre entreprise est un éatblissement stable belge d'une maison mère étrangère</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TIN" type="TIN_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Numéro d’entreprise ou numéro d'identification de la maison mère</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountryCode" type="iso:CountryCode_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Code pays de la maison mère étrangère</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Restructurings_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Restructurations</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MergerDemerger" type="BooleanNotEmpty_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Votre entreprise a fait l'objet d'une reprise, d'une fusion ou d'une scission au cours de l'exercice d'imposition actuel</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Acquisition" type="BooleanNotEmpty_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Votre entreprise a acquis une autre entreprise ou activité professionnelle au cours de l'exercice d'imposition actuel</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ShareholderChange" type="BooleanNotEmpty_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Votre entreprise a connu des modifications dans la structure de l'actionnariat du groupe au cours de l'exercice d'imposition actuel</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IntangibleTransaction" type="BooleanNotEmpty_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Votre entreprise a été impliquée dans une transaction relative à une immobilisation incorporelle au cours de l'exercice d'imposition actuel</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="A8AnnualAccounts_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Synthèse des transactions, tant liées que non liées, à ne compléter que si l'entreprise n'est pas tenue de déposer le schéma complet de ses comptes annuels auprès de la Centrale des bilans de la Banque Nationale de Belgique (A8)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TurnOver" type="TaxablePeriods_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Chiffre d'affaires</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RawMaterialsConsumables" type="TaxablePeriods_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Marchandises, approvisionnements</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GrossProfit" type="TaxablePeriods_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Bénéfice brut</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OtherOperatingExpenses" type="TaxablePeriods_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Autres charges opérationnelles</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OperatingProfitLoss" type="TaxablePeriods_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Bénéfice (perte) d'exploitation (+)/(-)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Attachment" type="IsAttachmentAdded_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">PDF ajouté à la déclaration</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TaxablePeriods_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Période imposables</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TaxPeriod_0" type="SignedEuroAmount_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Période imposable-0</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxPeriod_1" type="SignedEuroAmount_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Période imposable-1</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxPeriod_2" type="SignedEuroAmount_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Période imposable-2</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DetailOfEachBusinessUnit_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Informations détaillées sur chaque unité d'exploitation dépassant la valeur seuil des transactions transfrontalières avec les entités constitutives au cours du dernier exercice clôturé</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="B1NatureOfActivities" type="B1NatureOfActivities_Type"  maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Nature des activités par unité d'exploitation (B1)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="B2AllTransactions" type="B2AllTransactions_Type" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Données des transactions, tant liées que non liées, par unité d'exploitation (B2)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="B3ControlledGoodsTransactions" type="B3ControlledGoodsTransactions_Type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Transactions de marchandises transfrontalières liées par unité d'exploitation, au cours de l'actuelle période imposable (B3)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="B4ControlledServicesTransactions" type="B4ControlledServicesTransactions_Type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Transactions de prestation de services transfrontalières liées par unité d'exploitation, au cours de l'actuelle période imposable (B4)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="B5ControlledFinancialTransactions" type="B5ControlledFinancialTransactions_Type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Transactions financières transfrontalières liées par unité d'exploitation, au cours de l'actuelle période imposable (B5)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="B6OtherControlledTransactions" type="B6OtherControlledTransactions_Type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Autres transactions transfrontalières liées par unité d'exploitation, au cours de l'actuelle période imposable (B6)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="B7ControlledLoans" type="B7ControlledLoans_Type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Emprunts liés par unité d'exploitation (B7)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="B8ControlledCashPooling" type="B8ControlledCashpooling_Type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Cash pooling lié par unité d'exploitation (B8)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="B9ControlledTradeReceivablesDebts" type="B9ControlledTradeReceivablesDebts_Type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Créances et dettes commerciales liées par unité d'exploitation (B9)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="B10TPMethodologyStudies" type="B10TPMethodologyStudies_Type" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Méthodologie et études des prix de transfert par unité d'exploitation et par nature de la transaction (B10)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="B11ResultOriginDistributionPE" type="B11ResultOriginDistributionPE_Type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Répartition bénéficiaire en cas d'existence d'établissements stables (B11)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="B12CCAsAPAsRulingsInHouseInsurances" type="B12CCAsAPAsRulingsInHouseInsurances_Type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Contrats de cost contribution, contrats d'advance pricing, décisions préalables et (ré)assurances internes (B12)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B1NatureOfActivities_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Nature des activités par unité d'exploitation (B1)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BusinessUnit" type="BusinessUnit_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Identification de l'unité d'exploitation</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="Description_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Description</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MainNACEBEL" type="NACE_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Code NACE-BEL activité principale</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SecondaryNACEBEL" type="NACE_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Code NACE-BEL activité accessoire</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Profile" type="Profile_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Profil</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProfileDetail" type="ProfileDetail_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Profil détaillé</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Attachment" type="IsAttachmentAdded_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">PDF ajouté à la déclaration</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B2AllTransactions_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Données des transactions, tant liées que non liées, par unité d'exploitation (B2)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TaxPeriod_0" type="TaxPeriodDetails_Type"  maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Période imposable-0</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxPeriod_1" type="TaxPeriodDetails_Type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Période imposable-1</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TaxPeriod_2" type="TaxPeriodDetails_Type" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Période imposable-2</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Attachment" type="IsAttachmentAdded_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">PDF ajouté à la déclaration</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TaxPeriodDetails_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Période imposables détail</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BusinessUnit" type="BusinessUnit_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Identification de l'unité d'exploitation</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AccountingStandard" type="AccountingStandard_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Norme comptable</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Turnover" type="SignedEuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Chiffre d'affaires</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RawMaterialsConsumables" type="SignedEuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Marchandises, approvisionnements</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GrossProfit" type="SignedEuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Bénéfice brut</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OtherOperatingExpenses" type="SignedEuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Autres charges opérationnelles</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OperatingProfitLoss" type="SignedEuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Bénéfice (perte) d'exploitation (+)/(-)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B3ControlledGoodsTransactions_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Transactions de marchandises transfrontalières liées par unité d'exploitation, au cours de l'actuelle période imposable (B3)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BusinessUnit" type="BusinessUnit_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Identification de l'unité d'exploitation</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountryCodes" type="iso:CountryCode_Type" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Codes pays non-résident</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TPMethods" type="TPMethods_Type" maxOccurs="5">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Méthode de fixation des prix de transfert appliquée</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IndustrialProductsRawMaterialsConsumables" type="SalePurchase_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Fabrications, marchandises, approvisionnements</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IntangibleFixedAssets" type="SalePurchase_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Immobilisations incorporelles</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TangibleFixedAssets" type="SalePurchase_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Immobilisations corporelles</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FinancialFixedAssets" type="SalePurchase_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Immobilisations financières</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SalePurchase_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Ventes et achats</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Sale" type="EuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Ventes à un non-résident</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Purchase" type="EuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Achats à un non-résident</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B4ControlledServicesTransactions_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Transactions de prestation de services transfrontalières liées par unité d'exploitation, au cours de l'actuelle période imposable (B4)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BusinessUnit" type="BusinessUnit_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Identification de l'unité d'exploitation</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountryCodes" type="iso:CountryCode_Type" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Codes pays non-résident</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TPMethods" type="TPMethods_Type" maxOccurs="5">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Méthode de fixation des prix de transfert appliquée</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RentsRoyaltiesLicenceFees" type="ReceivedPaid_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Location, redevances et droits de licence</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RemunerationServices" type="ReceivedPaid_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Indemnités pour services de gestion, de marketing, de formation, d'ingénierie, techniques, de primes de (ré)assurance et autres</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResearchDevelopment" type="ReceivedPaid_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Recherche et développement</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CommissionFees" type="ReceivedPaid_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Commissions</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReceivedPaid_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Perçues et payées</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Revenu" type="EuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Perçues d'un non-résident</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Expenditure" type="EuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Payées à un non-résident</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B5ControlledFinancialTransactions_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Transactions financières transfrontalières liées par unité d'exploitation, au cours de l'actuelle période imposable (B5)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BusinessUnit" type="BusinessUnit_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Identification de l'unité d'exploitation</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountryCodes" type="iso:CountryCode_Type" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Codes pays non-résident</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TPMethods" type="TPMethods_Type" maxOccurs="5">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Méthode de fixation des prix de transfert appliquée</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IntrestOnLoans" type="ReceivedPaid_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Intérêts d'emprunts</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CashPoolingInterest" type="ReceivedPaid_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Intérêts de cash pooling</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InterestTradeReceivablesDebts" type="ReceivedPaid_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Intérêts de créances et dettes commerciales</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GuaranteeFees" type="ReceivedPaid_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Commissions de garantie</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InHouseInsurancePremiums" type="ReceivedPaid_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Primes d'assurance (de réassurance) internes</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Derivatives" type="ReceivedPaid_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Produits dérivés</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B6OtherControlledTransactions_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Autres transactions transfrontalières liées par unité d'exploitation, au cours de l'actuelle période imposable (B6)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BusinessUnit" type="BusinessUnit_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Identification de l'unité d'exploitation</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountryCodes" type="iso:CountryCode_Type" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Codes pays non-résident</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TPMethods" type="TPMethods_Type" maxOccurs="5">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Méthode de fixation des prix de transfert appliquée</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Others" type="ReceivedPaid_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Autres</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B7ControlledLoans_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Emprunts liés par unité d'exploitation (B7)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BusinessUnit" type="BusinessUnit_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Identification de l'unité d'exploitation</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Granted" type="IncreasesDecreases_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Emprunts octroyés</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Received" type="IncreasesDecreases_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Emprunts obtenus</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncreasesDecreases_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Majorations et diminutions</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Start" type="EuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Situation initiale</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Increases" type="EuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Majorations</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Decreases" type="EuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Diminutions</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="End" type="EuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Situation finale</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B8ControlledCashpooling_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Cash pooling lié par unité d'exploitation (B8)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BusinessUnit" type="BusinessUnit_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Identification de l'unité d'exploitation</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Nature" type="Nature_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Nature du cash pool Zéro balancing (Z) ou Notionnel (N)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Amounts" type="Amounts_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Montants dans le cash pool</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Amounts_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Montants dans le cash pool</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Start" type="SignedEuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Situation initiale</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="End" type="SignedEuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Situation finale</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B9ControlledTradeReceivablesDebts_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Créances et dettes commerciales liées par unité d'exploitation (B9)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BusinessUnit" type="BusinessUnit_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Identification de l'unité d'exploitation</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Receivables" type="IncreasesDecreases_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Créances</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Debts" type="IncreasesDecreases_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Dettes</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B10TPMethodologyStudies_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Méthodologie et études des prix de transfert par unité d'exploitation et par nature de la transaction (B10)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BusinessUnit" type="BusinessUnit_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Identification de l'unité d'exploitation</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TypeOfTransactions" type="TypeOfTransactions_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Nature des transactions</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Methodology" type="IsMethodology_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Méthodologie ou ligne de conduite</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FrameworkAgreement" type="IsFrameworkAgreement_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Contrat-cadre ou contrat-type</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TransferPricingStudy" type="IsTransferPricingStudy_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Étude des prix de transfert</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B11ResultOriginDistributionPE_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Répartition bénéficiaire en cas d'existence d'établissements stables (B11)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ExemptByTreaty" type="ExemptByTreaty_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Exonéré avec (T) ou sans (NT) traité</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountryCode" type="iso:CountryCode_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Code pays</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RemainingFiscalResult" type="SignedEuroAmount_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Résultats subsistant suivant sa provenance (+)/(-) (1431 PN)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="B12CCAsAPAsRulingsInHouseInsurances_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Contrats de cost contribution, contrats d'advance pricing, décisions préalables et (ré)assurances internes (B12)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BusinessUnit" type="BusinessUnit_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Identification de l'unité d'exploitation</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CompanyNumber" type="CompanyNumber_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Numéro d'entreprise Belge BCE</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CompanyName" type="CompanyName_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Dénomination</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="Description_Type" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Description</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Attachment" type="IsAttachmentAdded_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">PDF ajouté à la déclaration</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OtherAttachments_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Autres documents (optionnel) (C1)</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Description" type="Description_Type" maxOccurs="unbounded">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Description</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Attachment" type="IsAttachmentAdded_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">PDF ajouté à la déclaration</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+		<!-- simpleTypes -->
+	<xs:simpleType name="CompanyName_Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"></xs:minLength>
+			<xs:maxLength value="256"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CompanyNumber_Type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{10}"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AssessmentYear_Type">
+		<xs:restriction base="xs:positiveInteger">
+			<xs:pattern value="[0-9]{4}"></xs:pattern>
+			<xs:minInclusive value="2016"></xs:minInclusive>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StartDate_Type">
+		<xs:restriction base="xs:date">
+			<xs:minInclusive value="2014-01-01"/>
+			<xs:maxInclusive value="2049-12-31"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EndDate_Type">
+		<xs:restriction base="xs:date">
+			<xs:minInclusive value="2014-12-31"/>
+			<xs:maxInclusive value="2049-12-31"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Description_Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"></xs:minLength>
+<!-- 			<xs:maxLength value="512"></xs:maxLength> -->
+			<xs:maxLength value="1000"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TIN_Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"></xs:minLength>
+			<xs:maxLength value="32"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Function_Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"></xs:minLength>
+			<xs:maxLength value="128"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FunctionOfReceiver_Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"></xs:minLength>
+			<xs:maxLength value="128"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReceiversEmployer_Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"></xs:minLength>
+			<xs:maxLength value="256"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BusinessUnit_Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"></xs:minLength>
+			<xs:maxLength value="32"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DetailedDescription_Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"></xs:minLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BusinessStrategy_Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"></xs:minLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AmountOfBusinessUnits_Type">
+		<xs:restriction base="xs:positiveInteger">
+			<xs:maxInclusive value="99999"></xs:maxInclusive>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AmountAboveThreshold_Type">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"></xs:minInclusive>
+			<xs:maxInclusive value="99999"></xs:maxInclusive>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BooleanNotEmpty_Type">
+		<xs:restriction base="xs:boolean">
+			<xs:pattern value=".+"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ID_Type">
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NACE_Type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{5,7}"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Profile_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Research and Development (P1)"></xs:enumeration>
+			<xs:enumeration value="Holding or Managing Intellectual Property (P2)"></xs:enumeration>
+			<xs:enumeration value="Purchasing or Procurement (P3)"></xs:enumeration>
+			<xs:enumeration value="Manufacturing or Production (P4)"></xs:enumeration>
+			<xs:enumeration value="Sales, Marketing or Distribution (P5)"></xs:enumeration>
+			<xs:enumeration value="Administrative, Management or Support Services (P6)"></xs:enumeration>
+			<xs:enumeration value="Provision or Services to Unrelated Parties (P7)"></xs:enumeration>
+			<xs:enumeration value="Internal Group Finance (P8)"></xs:enumeration>
+			<xs:enumeration value="Regulated Financial Services (P9)"></xs:enumeration>
+			<xs:enumeration value="Insurance (P10)"></xs:enumeration>
+			<xs:enumeration value="Holding Shares or Other Equity Instruments (P11)"></xs:enumeration>
+			<xs:enumeration value="Other (P12)"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ProfileDetail_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Agent (D1)"></xs:enumeration>
+			<xs:enumeration value="Commissionaire (D2)"></xs:enumeration>
+			<xs:enumeration value="Contract (D3)"></xs:enumeration>
+			<xs:enumeration value="Fully-fledged (D4)"></xs:enumeration>
+			<xs:enumeration value="Limited Risk (D5)"></xs:enumeration>
+			<xs:enumeration value="Toller (D6)"></xs:enumeration>
+			<xs:enumeration value="Other (D7)"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AccountingStandard_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BE GAAP (G1)"></xs:enumeration>
+			<xs:enumeration value="IFRS (G2)"></xs:enumeration>
+			<xs:enumeration value="Other local GAAP (G3)"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TPMethods_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CUP (M1)"></xs:enumeration>
+			<xs:enumeration value="Costplus (M2)"></xs:enumeration>
+			<xs:enumeration value="Resale Price (M3)"></xs:enumeration>
+			<xs:enumeration value="Profit Split (M4)"></xs:enumeration>
+			<xs:enumeration value="TNMM (M5)"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Nature_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Z">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Zéro-balancing (Z)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="N">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Notionnel (N)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeOfTransactions_Type">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="64"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IsMethodology_Type">
+		<xs:restriction base="xs:boolean">
+			<xs:pattern value=".+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IsFrameworkAgreement_Type">
+		<xs:restriction base="xs:boolean">
+			<xs:pattern value=".+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IsTransferPricingStudy_Type">
+		<xs:restriction base="xs:boolean">
+			<xs:pattern value=".+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ExemptByTreaty_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Tax treaty (T)"></xs:enumeration>
+			<xs:enumeration value="Without tax treaty (NT)"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EuroAmount_Type">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"></xs:fractionDigits>
+			<xs:totalDigits value="16"></xs:totalDigits>
+			<xs:minInclusive value="0"></xs:minInclusive>
+			<xs:maxInclusive value="99999999999999.99"></xs:maxInclusive>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SignedEuroAmount_Type">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2"></xs:fractionDigits>
+			<xs:totalDigits value="16"></xs:totalDigits>
+			<xs:maxInclusive value="99999999999999.99"></xs:maxInclusive>
+			<xs:minInclusive value="-99999999999999.99"></xs:minInclusive>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NatInternatReporting_Type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="N">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Rapportage national (N)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="I">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Rapportage international (I)</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IsAttachmentAdded_Type">
+		<xs:restriction base="xs:boolean">
+			<xs:pattern value=".+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	</xs:schema>

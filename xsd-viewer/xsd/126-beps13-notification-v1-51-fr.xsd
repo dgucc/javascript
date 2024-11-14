@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://beps13.minfin.fgov.be/notification/v1.51"  xmlns="http://beps13.minfin.fgov.be/notification/v1.51" 
+	xmlns:iso="urn:oecd:ties:isocbctypes:v1" elementFormDefault="qualified" version="1.51">
+	<xs:import namespace="urn:oecd:ties:isocbctypes:v1" schemaLocation="isocbctypes_v1.0.xsd"/>
+	<!-- Root element -->
+	<xs:element name="Declaration275CBCNOT" type="Declaration275CBCNOT_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">275 CBC NOT</xs:documentation>
+
+
+		</xs:annotation>
+	</xs:element>
+	<!-- complexTypes -->
+	<xs:complexType name="Declaration275CBCNOT_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Relevé 275 CBC NOT</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Declarer" type="Declarer_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Entreprise</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UltimateParentCompany" type="UltimateParentCompany_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Entité mère ultime</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IsYourParentCompany" type="BooleanTrue_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Entité mère de substitution</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BelgGroupEntITC92" type="BelgGroupEntITC92_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Entité constitutive belge telle que décrite à l'article 321/2, §2 CIR 92</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MotherRep" type="MotherRep_Type" minOccurs="0">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Votre entreprise n'est pas l'entité déclaratante</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Declarer_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Entreprise</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CompanyName" type="CompanyName_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Dénomination</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CompanyNumber" type="CompanyNumber_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Numéro d'entreprise</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssessmentYear" type="AssessmentYear_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Exercice d'imposition</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReportingPeriod" type="ReportingPeriod_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Période déclarable</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReportingPeriod_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Période déclarable</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="StartDate" type="StartDate_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">du</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EndDate" type="EndDate_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">au</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UltimateParentCompany_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Entité mère ultime</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="isUltimateParentCompany" type="BooleanTrue_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Votre entreprise est l’entité mère ultime</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DistinctParentCompany" type="DistinctParentCompany_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Entité mère ultime</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="DistinctParentCompany_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Entité mère ultime</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="CompanyName_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Nom de l'entité mère ultime</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CountryCode" type="iso:CountryCode_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Code pays de l'entité mère ultime</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TIN" type="TIN_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Numéro d’identification fiscale de l’entité mère ultime</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MotherAdres" type="Address_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Adresse complète de l'entité mère ultime</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Address_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Adresse</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Street" type="Street_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Rue</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Number" type="Number_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Numéro</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PostalCode" type="PostCode_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Code postal</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="City" type="City_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Ville</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BelgGroupEntITC92_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Entité constitutive belge conformément à l’article 321/2, § 2 CIR 92</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="BelgGroupEnt" type="BelgGroupEnt_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Votre entreprise est une entité constitutive belge conformément à l’article 321/2, § 2 CIR 92 pour la raison suivante (plusieurs options sont possibles)</xs:documentation>
+
+
+				</xs:annotation>				
+			</xs:element>
+			<xs:element name="Refusal" type="BooleanTrue_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Indiquer si l'entité mère ultime a refusé de mettre à disposition les informations exigées telles que mentionnées à l'article 321/2, §2 CIR 92</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>				
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="BelgGroupEnt_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Votre entreprise est une entité constitutive belge conformément à l’article 321/2, § 2 CIR 92 pour la raison suivante (plusieurs options sont possibles)</xs:documentation>
+
+
+		</xs:annotation>
+			<xs:sequence>
+				<xs:element name="NoCBC" type="BooleanNotEmpty_Type">
+					<xs:annotation>
+
+						<xs:documentation xml:lang="fr">L'entité mère ultime du groupe multinational n'est pas tenue de déposer une déclaration pays par pays dans la juridiction dont elle est résidente fiscale</xs:documentation>
+
+
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="NoAcord" type="BooleanNotEmpty_Type">
+					<xs:annotation>
+
+						<xs:documentation xml:lang="fr">Au plus tard 12 mois après le dernier jour de la période déclarable, la juridiction dont l'entité mère ultime est résidente fiscale n'a pas d'accord éligible entre autorités compétentes en vigueur auquel la Belgique est partie</xs:documentation>
+
+
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Negligence" type="BooleanNotEmpty_Type">
+					<xs:annotation>
+
+						<xs:documentation xml:lang="fr">L'administration belge compétente pour l'établissement des impôts sur les revenus a informé l'entité constitutive belge d'une défaillance systématique de la part de la juridiction dont l'entité mère ultime est résidente fiscale</xs:documentation>
+
+
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="EUOther" type="BooleanNotEmpty_Type">
+					<xs:annotation>
+
+						<xs:documentation xml:lang="fr">Concerne l'entité constitutive désignée par le groupe multinational lorsque plusieurs entités constitutives du même groupe multinational sont résidentes fiscales de l'Union Européenne, et qu'une ou plusieurs des trois conditions susmentionnées sont remplies</xs:documentation>
+
+
+					</xs:annotation>
+				</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MotherRep_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Votre entreprise n'est pas l'entité déclaratante</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="isReportingCompany" type="BooleanTrue_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">L’entité déclarante est l’entité mère ultime</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DistinctReportingCompany" type="DistinctReportingCompany_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Si l’entité déclarante n’est pas l’entité mère ultime</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="DistinctReportingCompany_Type">
+		<xs:annotation>
+
+			<xs:documentation xml:lang="fr">Si l’entité déclarante n’est pas l’entité mère ultime</xs:documentation>
+
+
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ReportingEntityName" type="CompanyName_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Dénomination de l'entité déclarante</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReportingEntityCountrycode" type="iso:CountryCode_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Code pays du domicile de l'entité déclarante</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReportingEntityTIN" type="TIN_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Numéro d’identification fiscale de l’entité déclarante</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReportingEntityAdress" type="Address_Type">
+				<xs:annotation>
+
+					<xs:documentation xml:lang="fr">Adresse complète de l’entité déclarante</xs:documentation>
+
+
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- simpleTypes -->
+	<xs:simpleType name="CompanyNumber_Type">
+		<xs:restriction base="xs:positiveInteger">
+			<xs:pattern value="[0-9]{10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AssessmentYear_Type">
+		<xs:restriction base="xs:integer">
+			<xs:pattern value="[0-9]{4}"/>
+			<xs:minInclusive value="2016"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StartDate_Type">
+		<xs:restriction base="xs:date">
+			<xs:minInclusive value="2014-01-01"/>
+			<xs:maxInclusive value="2049-12-31"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EndDate_Type">
+		<xs:restriction base="xs:date">
+			<xs:minInclusive value="2014-01-01"/>
+			<xs:maxInclusive value="2049-12-31"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CompanyName_Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="256"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TIN_Type">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="64"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Street_Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="64"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Number_Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PostCode_Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="City_Type">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="64"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BooleanTrue_Type">
+		<xs:restriction base="xs:boolean">
+			<xs:pattern value="true|1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BooleanNotEmpty_Type">
+		<xs:restriction base="xs:boolean">
+			<xs:pattern value=".+"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
