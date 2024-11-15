@@ -59,3 +59,51 @@ var nCanvasHeight = 5000; // default was 5000; // 20000 to big LocalFile
 </tr>
 ```
 
+---
+
+# TODO
+
+## export Canvas as PNG [x]  
+```javascript
+// Downlad Canvas as image : Canvas.toDataURL()
+function exportCanvasAsPNG(id, fileName) {
+
+  var canvasElement = document.getElementsByTagName("canvas");
+  var MIME_TYPE = "image/png";
+
+  var imgURL = canvasElement[0].toDataURL(MIME_TYPE);
+
+  // create pseudo anchor for download
+  var dlLink = document.createElement('a');
+  dlLink.download = fileName;
+  dlLink.href = imgURL;
+  dlLink.dataset.downloadurl = [MIME_TYPE, dlLink.download, dlLink.href].join(':');
+
+  // simulate click to download
+  document.body.appendChild(dlLink);
+  dlLink.click();
+  document.body.removeChild(dlLink);
+}
+```
+
+## set background color at Canvas [ ]
+Need to duplicate elements to new Canvas
+```javascript
+function getCanvasImageWithBackgroundColor(canvasObj, backgroundColor) {
+  const combinedCanvas = document.createElement("canvas");
+  combinedCanvas.width = canvasObj.width;
+  combinedCanvas.height = canvasObj.height;
+
+  const combinedCtx = combinedCanvas.getContext("2d");
+  combinedCtx.fillStyle = backgroundColor;
+  combinedCtx.fillRect(0, 0, canvasObj.width, canvasObj.height);
+  combinedCtx.drawImage(canvasObj, 0, 0);
+
+  return combinedCanvas.toDataURL('image/png');
+}
+```
+
+## fit Canvas to content [ ]  
+
+
+## expand all elements at once [ ]  
