@@ -36,7 +36,7 @@ var NodeTypeNames = ["", "Complex", "Simple", "Sequence", "Choice", "String", "N
 var nMaxSearchResults = 100;
 var bTooManySearchResults = false;
 
-
+const rectangles = [];
 
 searchResetButton.style.display = "none";
 
