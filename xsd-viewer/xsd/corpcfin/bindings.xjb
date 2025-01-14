@@ -1,0 +1,34 @@
+<jxb:bindings version="1.0"
+  xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:bambi="http://minfin.fgov.be/bambi/bambiTypes_1_0"
+  xs:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd http://annox.dev.java.net "
+  xmlns:annox="http://annox.dev.java.net"
+  jxb:extensionBindingPrefixes="annox">
+  
+	<jxb:globalBindings
+	  fixedAttributeAsConstantProperty="true"
+	  collectionType="java.util.ArrayList"
+	  typesafeEnumBase="xs:NCName"
+	  choiceContentProperty="false"
+	  typesafeEnumMemberName="generateError"
+	  enableFailFastCheck="false"
+	  generateIsSetMethod="false"
+	  underscoreBinding="asCharInWord"
+      optionalProperty="primitive">
+ 	    <jxb:javaType
+	      name="java.util.Date"
+	      xmlType="xs:dateTime"
+	      parseMethod="be.fgov.minfin.calcisoc.common.helper.XmlDateHelper.parseXmlDateTime"
+	      printMethod="be.fgov.minfin.calcisoc.common.helper.XmlDateHelper.formatXmlDateTime"
+	      />
+	</jxb:globalBindings>
+	  
+ 	<jxb:bindings schemaLocation="Scriptura_CALCISOC.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="be.fgov.minfin.calcisoc.fedopress"/>
+			<jxb:nameXmlTransform><jxb:typeName suffix="Element"/></jxb:nameXmlTransform>
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+</jxb:bindings>

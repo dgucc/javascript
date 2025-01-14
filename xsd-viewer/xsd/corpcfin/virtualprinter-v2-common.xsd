@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file was provided externally from VirtualPrinter documentation when Calcisoc switched to VirtualPrinter V2. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:common="http://virtualprinter.docmgmt.finbel.intra/common"
+           targetNamespace="http://virtualprinter.docmgmt.finbel.intra/common">
+
+	<xs:complexType name="CDISData">
+		<xs:sequence>
+			<xs:element name="DocType" type="common:CDISDocType"/>
+			<xs:element name="DocTypeVersion" type="common:CDISDocTypeVersion"/>
+			<xs:element name="Metadata" type="common:Metadata" minOccurs="0" maxOccurs="1000"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Metadata">
+		<xs:sequence>
+			<xs:element name="Name" type="common:BoundedString"/>
+			<xs:element name="Value" type="common:BoundedString" maxOccurs="5000"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eSignature">
+		<xs:sequence>
+			<xs:element name="ApplicationId" type="xs:string"/>
+			<xs:element name="SignatureMessage" type="xs:string"/>
+			<xs:element name="SignatureFields" type="xs:string" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DocumentComposition">
+		<xs:sequence>
+			<xs:element name="ClientCode" type="common:TwoCharString"/>
+			<xs:element name="TemplateName" type="common:TemplateName"/>
+			<xs:element name="DigiPostIdentification" type="common:DigiPostIdentification" minOccurs="0"/>
+			<xs:element name="RegisteredMail" type="common:RegisteredMailType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DRSData">
+		<xs:sequence>
+			<xs:element name="RespCodeGroup" type="common:RespCode"/>
+			<xs:element name="RespCodePerson" type="common:RespCode" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--
+	<xs:complexType name="DocumentContent">
+		<xs:sequence>
+			<xs:any maxOccurs="5000" processContents="lax"/>
+		</xs:sequence>
+	</xs:complexType>
+	-->
+	<xs:simpleType name="CDISDocType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CDISDocTypeVersion">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BoundedString">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StorageType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CDIS"/>
+			<xs:enumeration value="FILENET"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PrintType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CONDITIONAL"/>
+			<xs:enumeration value="FORCED"/>
+			<xs:enumeration value="NO"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TwoCharString">
+		<xs:restriction base="xs:string">
+			<xs:length value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TemplateName">
+		<xs:restriction base="xs:string">
+			<xs:length value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DigiPostIdentification">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RegisteredMailType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BE"/>
+			<xs:enumeration value="ZZ"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RespCode">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file was provided externally from VirtualPrinter documentation when Calcisoc switched to VirtualPrinter V2. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:common="http://virtualprinter.docmgmt.finbel.intra/common">
+
+	<xs:import namespace="http://virtualprinter.docmgmt.finbel.intra/common"
+	           schemaLocation="virtualprinter-v2-common.xsd"/>
+
+	<!--<xs:element name="DocumentScriptura" type="DocumentScriptura"/>-->
+
+	<xs:complexType name="DocumentScriptura">
+		<xs:sequence>
+			<xs:element name="DocumentManagement">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CDIS" type="common:CDISData"/>
+						<xs:element name="ESignature" type="common:eSignature" minOccurs="0"/>
+						<xs:element name="Storage" type="common:StorageType" minOccurs="0"/>
+						<xs:element name="SendEboxMessage" type="xs:boolean" minOccurs="0"/>
+						<xs:element name="Print" type="common:PrintType" minOccurs="0"/>
+						<xs:element name="SendDate" type="xs:date" minOccurs="0"/>
+						<xs:element name="DocumentComposition" type="common:DocumentComposition"/>
+						<xs:element name="DRS" type="common:DRSData" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<!--<xs:element name="DocumentContent" type="xmlin:DocumentContent"/>-->
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
