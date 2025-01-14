@@ -30,8 +30,9 @@ var NodeTypeInteger = 7;
 var NodeTypeDate = 8;
 var NodeTypeDateTime = 9;
 var NodeTypeBoolean = 10;
+var NodeTypeAll = 3; // dgucc
 
-var NodeTypeNames = ["", "Complex", "Simple", "Sequence", "Choice", "String", "Number", "Integer", "Date", "DateTime", "Boolean"];
+var NodeTypeNames = ["", "Complex", "Simple", "Sequence", "Choice", "String", "Number", "Integer", "Date", "DateTime", "Boolean", "all"]; // dgucc "all"
 
 var nMaxSearchResults = 100;
 var bTooManySearchResults = false;
@@ -52,7 +53,7 @@ if (window != window.top)
 
 function IsRealNode(nodeType) {
   var result = true;
-  if (nodeType == NodeTypeChoice || nodeType == NodeTypeSequence)
+  if (nodeType == NodeTypeChoice || nodeType == NodeTypeSequence || nodeType == NodeTypeAll)
     result = false;
   return result;
 }
@@ -83,6 +84,41 @@ function ShowChildNodes(parentNode) {
   tracePar.innerHTML = txt;
 }
 
+
+/*
+<xs:element name="FundsXML4">
+  <xs:annotation>
+    <xs:documentation>Root element of FundsXML V4</xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="ControlData" type="ControlDataType">
+      <xs:annotation>
+        <xs:documentation>Meta data of xml document (like unique id, date, data supplier, language, ...)</xs:documentation>
+      </xs:annotation>
+  ...
+</xs:element>
+
+<xs:complexType name="FundType">
+  <xs:sequence>
+    <xs:element name="Identifiers" type="IdentifiersType">
+      <xs:annotation>
+        <xs:documentation>Identifiers of fund</xs:documentation>
+      </xs:annotation>
+    </xs:element>
+    <xs:element name="Names" type="NamesType">
+      <xs:annotation>
+        <xs:documentation>Names of fund</xs:documentation>
+      </xs:annotation>
+    </xs:element>
+
+<xs:complexType name="CountrySpecificDataATType">
+  <xs:complexContent>
+    <xs:extension base="xs:anyType"/>
+  </xs:complexContent>
+</xs:complexType>
+*/
+
 function ParseComplexTypeNode(node, parentIndex) {
   //Nodes[parentIndex].type = NodeTypeComplex;
 
@@ -93,12 +129,12 @@ function ParseComplexTypeNode(node, parentIndex) {
   var i = null;
 
   for (i = 0; i < childNodes.length; i++) {
-    if (childNodes[i].nodeType == 1) {
+    if (childNodes[i].nodeType == 1) { // complexType
       nodeName = childNodes[i].nodeName;
       /*if (nodeName == "xs:annotation") {
         // todo
       }*/
-      if (nodeName == "xs:choice" || nodeName == "xs:sequence") {
+      if (nodeName == "xs:choice" || nodeName == "xs:sequence" || nodeName == "xs:all") { // dgucc
         previousIndex = nodeIndex;
         nodeIndex = AddNode(childNodes[i], parentIndex, previousIndex);
         if (parentIndex != null && previousIndex == null)
@@ -124,7 +160,7 @@ function ParseSequenceNode(node, parentIndex) {
   var i = null;
 
   for (i = 0; i < childNodes.length; i++) {
-    if (childNodes[i].nodeType == 1) {
+    if (childNodes[i].nodeType == 1) { // complexType
       previousIndex = nodeIndex;
       nodeIndex = AddNode(childNodes[i], parentIndex, previousIndex);
       if (parentIndex != null && previousIndex == null)
@@ -177,6 +213,50 @@ function ToNumberUnbounded(value, default_value) {
 }
 
 
+/*
+<xs:simpleType>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="AssetMasterData"/>
+
+<xs:simpleType name="ISOCurrencyCodeType">
+  <xs:annotation>
+    <xs:documentation xml:lang="en">Three-letter ISO-CurrencyCode (ISO 4217)</xs:documentation>
+    <xs:documentation xml:lang="de">Dreistelliger ISO-Waehrungscode (ISO 4217)</xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string">
+    <xs:maxLength value="3"/>
+    <xs:minLength value="3"/>
+    <xs:pattern value="[A-Z]{3}"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:element name="DataOperation" minOccurs="0">
+  <xs:annotation>
+    <xs:documentation>Initial, Amend, Delete</xs:documentation>
+  </xs:annotation>
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="5"/>
+      <xs:maxLength value="7"/>
+      <xs:enumeration value="INITIAL"/>
+      <xs:enumeration value="AMEND"/>
+      <xs:enumeration value="DELETE"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+
+<xs:element name="UnlistedType">
+  <xs:annotation>
+    <xs:documentation>Description of other document types</xs:documentation>
+  </xs:annotation>
+  <xs:simpleType>
+    <xs:restriction base="Text128Type">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+*/
+
 function ParseSimpleTypeNode(node, destIndex) {
   var internalNodeName;
   var restrictionNode = GetFirstChildNode(node, "xs:restriction");
@@ -205,6 +285,25 @@ function ParseSimpleTypeNode(node, destIndex) {
   }
 }
 
+
+/*
+<xs:element name="Amount" maxOccurs="unbounded">
+  <xs:annotation>
+    <xs:documentation xml:lang="en">Amounts in currency as defined in attribute</xs:documentation>
+    <xs:documentation xml:lang="de">Betrag in frei waehlbarer Waehrung</xs:documentation>
+  </xs:annotation>
+  <xs:complexType>
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute name="ccy" type="ISOCurrencyCodeType" use="required"/>
+        <xs:attribute name="isfundccy" type="xs:boolean"/>
+        <xs:attribute name="issubfundccy" type="xs:boolean"/>
+        <xs:attribute name="isshareclassccy" type="xs:boolean"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:element>
+*/
 
 function ParseSimpleContentNode(node, destIndex) {
   var internalNodeName;
@@ -300,7 +399,7 @@ function AddNode(node, parentIndex, previousIndex) {
     mynode.type = NodeTypeChoice;
   }
 
-  if (internalNodeName == "xs:sequence") {
+  if (internalNodeName == "xs:sequence" || internalNodeName == "xs:all") { // dgucc
     mynode.type = NodeTypeSequence;
   }
 
@@ -354,7 +453,7 @@ function AddNode(node, parentIndex, previousIndex) {
   UpdateTypeDescription(nodeIndex);
 
   if (Nodes.length < 100000) {
-    if (mynode.type == NodeTypeChoice || mynode.type == NodeTypeSequence)
+    if (mynode.type == NodeTypeChoice || mynode.type == NodeTypeSequence || mynode.type == NodeTypeAll) // dgucc
       ParseSequenceNode(node, nodeIndex);
     else {
       if (!mynode.typeName) {
@@ -381,7 +480,7 @@ function AddNode(node, parentIndex, previousIndex) {
 function XPath(nodeIndex) {
   var result = "";
   var nodeType = Nodes[nodeIndex].type;
-  if (nodeType != NodeTypeChoice && nodeType != NodeTypeSequence)
+  if (nodeType != NodeTypeChoice && nodeType != NodeTypeSequence && nodetype != NodeTypeAll) // dgucc
     result = "/" + Nodes[nodeIndex].name;
   var parentIndex = Nodes[nodeIndex].parentIndex;
   if (parentIndex)
@@ -626,6 +725,8 @@ function LoadSimpleTypes(node) {
 }
 
 
+//<xs:include schemaLocation="FundsXML4_Core.xsd"/>
+
 function LoadIncludes(sourcePath, node) {
   var schemaLocation;
   var schemaURL;
@@ -773,11 +874,33 @@ function LoadSchema(textarea) {
   //tracePar.innerHTML += " - Rootnode-Type: " + rootNode.getAttribute("type");
   bResolveComplexTypes = true;
   rootNodeIndex = AddNode(rootNode);
-  ShowChildNodes(rootNode);
+  //ShowChildNodes(rootNode);
 
   statusText.innerHTML = ""; //"Ready";
-  
+  /*
+  var txt = "Nodes:";
+  for (i = 0; i < Nodes.length; i++)
+  txt += "<br>Nodes[" + i + "]: parentIndex=" + Nodes[i].parentIndex + ", type='" + NodeTypeNames[Nodes[i].type] + "', name='" + ToString(Nodes[i].name) + "', typeName='" + ToString(Nodes[i].typeName) + "', baseTypeName='" + ToString(Nodes[i].baseTypeName) + "', minOccurs=" + ToString(Nodes[i].minOccurs) + ", maxOccurs=" + ToString(Nodes[i].maxOccurs) + ", firstChildIndex=" + ToString(Nodes[i].firstChildIndex) + ", annotation='" + ToString(Nodes[i].annotation) + "'";
+
+  txt += "<br><br>ComplexTypes:";
+  for (i = 0; i < ComplexTypes.length; i++)
+  txt += "<br>ComplexTypes[" + i + "]: name='" + ComplexTypes[i].name + "', nodeIndex=" + ComplexTypes[i].nodeIndex;
+
+  txt += "<br><br>SimpleTypes:";
+  for (i = 0; i < SimpleTypes.length; i++)
+  txt += "<br>SimpleTypes[" + i + "]: name='" + SimpleTypes[i].name + "', nodeIndex=" + SimpleTypes[i].nodeIndex;
+  */
+
   var txt = "ComplexTypes: " + ComplexTypes.length + ", SimpleTypes: " + SimpleTypes.length + ", Nodes: " + Nodes.length + ", rootNodeIndex: " + rootNodeIndex;
+  /*
+  txt += "<br>";
+  for (i = 0; i < Nodes.length; i++)
+    txt += "<br>Nodes[" + i + "]: parentIndex=" + Nodes[i].parentIndex + ", firstChildIndex=" + ToString(Nodes[i].firstChildIndex) + ", nextIndex=" + ToString(Nodes[i].nextIndex) + ", type='" + NodeTypeNames[Nodes[i].type] + "', name='" + ToString(Nodes[i].name) + "', typeName='" + ToString(Nodes[i].typeName) + "', baseTypeName='" + ToString(Nodes[i].baseTypeName) + "', minOccurs=" + ToString(Nodes[i].minOccurs) + ", maxOccurs=" + ToString(Nodes[i].maxOccurs) + ", annotation='" + ToString(Nodes[i].annotation) + "'";
+
+  txt += "<br>";
+  for (i = 0; i < ComplexTypes.length; i++)
+    txt += "<br>ComplexTypes[" + i + "]: name='" + ComplexTypes[i].name + "', nodeIndex=" + ComplexTypes[i].nodeIndex;
+  */
   tracePar.innerHTML = txt;
 
   schemaOptions.style.display = 'block';
@@ -2041,6 +2164,15 @@ function ShowNodeDetails(nodeIndex) {
   nodeDetails.style.left = x + "px";
   nodeDetails.style.top = y + "px";
 
+  /*
+  document.body.scrollTop = canvasContainer.offsetTop + 1;
+  <tr><td class="node-column">Name</td><td class="node-name" id="nd-name">SampleNodeName</td></tr>
+  <tr><td class="node-column">Attr</td><td class="attributes" id="nd-attr"><b>AttrOne:</b> TypeInfo<br/><b>AttributeTwo:</b> TypeInfo</td></tr>
+  <tr><td class="node-column">Type</td><td class="type-description" id="nd-type">Type Description</td></tr>
+  <tr><td class="node-column">Descr</td><td class="annotation" id="nd-anno">First line of annotation text<br/>second line of annotation text<br/>third line</td></tr>
+  <tr><td class="node-column">Enum</td><td class="enumeration" id="nd-enum">FIRST<br/>SECOND<br/>THIRD<br/>FOURTH</td></tr>
+  <tr><td class="node-column">XPath</td><td class="xpath" id="nd-xpath">/FundsXML4/Funds/Fund/FundDynamicData/TotalAssetValues/TotalAssetValue</td></tr>
+  */
   NodeDetailsName.innerHTML = node.name;
 
   if (Nodes[nodeIndex].attributes) {
