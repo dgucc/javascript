@@ -30,7 +30,7 @@ var NodeTypeInteger = 7;
 var NodeTypeDate = 8;
 var NodeTypeDateTime = 9;
 var NodeTypeBoolean = 10;
-var NodeTypeAll = 3; // dgucc
+var NodeTypeAll = 11; // dgucc trick : use xs:all as xs:sequence
 
 var NodeTypeNames = ["", "Complex", "Simple", "Sequence", "Choice", "String", "Number", "Integer", "Date", "DateTime", "Boolean", "all"]; // dgucc "all"
 
@@ -480,7 +480,7 @@ function AddNode(node, parentIndex, previousIndex) {
 function XPath(nodeIndex) {
   var result = "";
   var nodeType = Nodes[nodeIndex].type;
-  if (nodeType != NodeTypeChoice && nodeType != NodeTypeSequence && nodetype != NodeTypeAll) // dgucc
+  if (nodeType != NodeTypeChoice && nodeType != NodeTypeSequence && nodeType != NodeTypeAll) // dgucc
     result = "/" + Nodes[nodeIndex].name;
   var parentIndex = Nodes[nodeIndex].parentIndex;
   if (parentIndex)
