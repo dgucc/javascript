@@ -1,7 +1,6 @@
 # Node.js - tuto
 
 [Node.js Tuto Débutant](https://youtu.be/NRxzvpdduvQ)
-1h24
 
 ## run app.js
 `> node app.js`  
@@ -57,17 +56,17 @@ pokemons.find(pokemon => pokemon.id === id)
 
 ```
 
-## HTTP response
+## HTTP response [1h24]
 - Data : howt to ensure the validity ?  
 - JSON : instead of string  
    express : `res.send()` => `res.json(pokemon)`  
 - MIME type  
-   Content-Type:application/json
-   Content-Type:text/html
+   Content-Type:application/json  
+   Content-Type:text/html  
 - Status Code  
-   200 : OK
-   404 : Resource not found
-   etc.
+   200 : OK  
+   404 : Resource not found  
+   etc.  
 
 ## helper.js
 Method to attach a confirmation message to the response
@@ -92,4 +91,6 @@ res.json(success(message, pokemon))
 
 ## /api/pokemons
 
-Exercice : return all pokemons in json with a confirmation message
+Exercice : return all pokemons in json with a confirmation message  
+
+## Middleware [1h45]  
