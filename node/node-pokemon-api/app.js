@@ -11,8 +11,10 @@ const port = 3000
 app.get('/', (req, res) => res.send('Hello, express with nodemon!'))
 
 app.get('/api/pokemons', (req,res) => {
-   const total = pokemons.length
-   res.send(`Total of ${total} pokemons in the pokedex`)
+   // const total = pokemons.length
+   // res.send(`Total of ${total} pokemons in the pokedex`)
+   const message = `All ${pokemons.length} pokemons has been retrieved`
+   res.json(success(message, pokemons))
 })
 
 app.get('/api/pokemons/:id', (req,res) => {

@@ -58,7 +58,7 @@ pokemons.find(pokemon => pokemon.id === id)
 ```
 
 ## HTTP response
-- Data : quality ?  
+- Data : howt to ensure the validity ?  
 - JSON : instead of string  
    express : `res.send()` => `res.json(pokemon)`  
 - MIME type  
@@ -68,3 +68,28 @@ pokemons.find(pokemon => pokemon.id === id)
    200 : OK
    404 : Resource not found
    etc.
+
+## helper.js
+Method to attach a confirmation message to the response
+
+```js
+// helper.js
+export.success = (message,data) => {return {message, data}}
+```
+```js
+// app.js
+const helper = require('./helper.js')
+const message = `Pokemon N°${id} found `
+res.json(helper.success(message, pokemon))
+```
+
+To import only the medhod success() :  
+```js
+const { success } = required('./helper.js')
+...
+res.json(success(message, pokemon))
+```
+
+## /api/pokemons
+
+Exercice : return all pokemons in json with a confirmation message
