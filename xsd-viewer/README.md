@@ -105,5 +105,7 @@ function getCanvasImageWithBackgroundColor(canvasObj, backgroundColor) {
 
 ## fit Canvas to content [ ]  
 
+Workaround : How to crop automatically image with imagemagick by trimming white regions away :   
+`$ convert -trim input.png output.png` 
 
 ## expand all elements at once [ ]  
