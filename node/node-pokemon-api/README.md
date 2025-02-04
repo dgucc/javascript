@@ -60,6 +60,7 @@ pokemons.find(pokemon => pokemon.id === id)
 ## HTTP response
 - Data : quality ?  
 - JSON : instead of string  
+   express : `res.send()` => `res.json(pokemon)`  
 - MIME type  
    Content-Type:application/json
    Content-Type:text/html
@@ -67,5 +68,3 @@ pokemons.find(pokemon => pokemon.id === id)
    200 : OK
    404 : Resource not found
    etc.
-
-express : `res.send()` => `res.json(pokemon)`  

@@ -1,6 +1,8 @@
 //console.log("hello, Node!")
 
 const express = require('express')
+//const helper = require('./helper.js')
+const { success } = require('./helper.js')
 let pokemons = require('./mock-pokemon.js')
 
 const app = express()
@@ -16,7 +18,9 @@ app.get('/api/pokemons', (req,res) => {
 app.get('/api/pokemons/:id', (req,res) => {
    const id = parseInt(req.params.id)
    const pokemon = pokemons.find(pokemon => pokemon.id === id)
-   res.json(pokemon)
+   const message = `Pokemon N°${id} found `
+   //res.json(helper.success(message, pokemon))
+   res.json(success(message, pokemon))
 })
 
 
