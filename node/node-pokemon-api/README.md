@@ -56,3 +56,16 @@ id = parseInt(req.params.id)
 pokemons.find(pokemon => pokemon.id === id)
 
 ```
+
+## HTTP response
+- Data : quality ?  
+- JSON : instead of string  
+- MIME type  
+   Content-Type:application/json
+   Content-Type:text/html
+- Status Code  
+   200 : OK
+   404 : Resource not found
+   etc.
+
+express : `res.send()` => `res.json(pokemon)`  
