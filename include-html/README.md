@@ -5,6 +5,8 @@ Using jquery
 ```
 |   index.html
 |
++---css
+|       style.css
 +---js
 |       jquery-3.7.1.min.js
 |       script.js
