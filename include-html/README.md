@@ -1,6 +1,19 @@
 # Include html into another
 
-Using jquery 
+Using jquery  
+
+```
+|   index.html
+|
++---js
+|       jquery-3.7.1.min.js
+|       script.js
+|
+\---views
+        body.html
+        footer.html
+        header.html
+```
 
 ```html
 <!DOCTYPE html>
