@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    height: calc(100vh);
+
+    overflow: hidden;
+}
+
+.shadow {
+    border: 1px;
+    border-radius: 5px;
+    filter: drop-shadow(20px 20px 30.5px white);
+}
